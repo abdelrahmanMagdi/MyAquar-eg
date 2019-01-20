@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">MyAquar-eg</string>
+    //ToolBar
+    <string name="ToolBar_All">All</string>
+    <string name="ToolBar_Al">     </string>
+    <string name="ToolBar_Res">Residential</string>
+    <string name="ToolBar_Com">Commercial</string>
+    <string name="ToolBar_Med">Medical</string>
+    <string name="ToolBar_HH">Holy Day Home</string>
+    <string name="ToolBar_Ls">Lunch Soon</string>
+
+    //Product_details
+    <string name="Product_Des">Description:</string>
+    <string name="Product_Type">Property Type</string>
+    <string name="Product_Size">Property Size</string>
+    <string name="Product_BedRoom">BedRooms</string>
+    <string name="Product_BathRoom">BathRooms</string>
+    <string name="Product_Accommodation">Accommodation</string>
+
+</resources>

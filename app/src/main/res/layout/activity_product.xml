@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context="aquar.aswany.myaquar_eg.Activity.Product_Activity">
+
+
+    <com.daimajia.slider.library.SliderLayout
+        android:id="@+id/Product_Slider"
+        android:layout_width="match_parent"
+        android:layout_height="230dp">
+    </com.daimajia.slider.library.SliderLayout>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Product_Slider"
+        android:background="@android:color/white"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="#810000"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="#810000"
+        app:tabTextColor="@android:color/black" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tabs">
+
+    </android.support.v4.view.ViewPager>
+
+    <FrameLayout
+        android:id="@+id/Product_FrameLayout"
+        android:layout_width="match_parent"
+        android:layout_weight="4"
+        android:layout_height="0dp"/>
+
+    </RelativeLayout>

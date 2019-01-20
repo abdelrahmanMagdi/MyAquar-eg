@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/LinearLayout_Of_AllDeveloper"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp"
+
+   >
+    <ImageView
+        android:id="@+id/Image_Of_AllDeveloper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"/>
+    <TextView
+        android:id="@+id/Text_Of_AllDeveloper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="@dimen/margin_large"
+        android:background="#4000"
+        android:textColor="#fff"
+        android:paddingStart="@dimen/margin_small"
+
+        android:textSize="18sp"/>
+    <TextView
+        android:id="@+id/Text_Of_AllProjects"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/Text_Of_AllDeveloper"
+        android:background="#4000"
+        android:paddingStart="@dimen/margin_small"
+        android:textColor="#fff"
+
+        android:textSize="18sp"
+        android:layout_marginBottom="@dimen/margin_small"/>
+    <TextView
+        android:id="@+id/Text_Of_space"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@id/Text_Of_AllProjects"
+        android:text=" / "
+        android:layout_marginStart="@dimen/margin_small"
+
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:layout_marginBottom="@dimen/margin_small"
+        />
+    <TextView
+        android:id="@+id/Text_Of_AllLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@id/Text_Of_space"
+        android:textColor="#fff"
+        android:layout_marginStart="@dimen/margin_small"
+        android:textSize="18sp"
+        android:layout_marginBottom="@dimen/margin_small"/>
+</RelativeLayout>
