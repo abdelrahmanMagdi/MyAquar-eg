@@ -29,7 +29,7 @@ public class sign_up extends AppCompatActivity {
         jobTitle1 = jobTitle.getText().toString();
         password1 = password.getText().toString();
         phonenumber1 = phonenumber.getText().toString();
-
+//lkkhhkln
 
         if (username1.isEmpty()) {
             username.setError("Enter username ");
