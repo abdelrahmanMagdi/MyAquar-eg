@@ -30,9 +30,11 @@
         <activity
             android:name=".Activity.Search_Activity"
             android:screenOrientation="portrait" />
-        <activity android:name=".Activity.Product_Activity"
+        <activity
+            android:name=".Activity.Product_Activity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Activity.sign_up"></activity>
     </application>
 
 </manifest>
