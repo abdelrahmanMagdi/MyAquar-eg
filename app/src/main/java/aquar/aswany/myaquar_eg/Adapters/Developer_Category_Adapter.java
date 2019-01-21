@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +34,7 @@ public class Developer_Category_Adapter extends RecyclerView.Adapter<Developer_C
     private ArrayList<Pojo_Developer_Category_Obj> developerCategoryObj;
     private Context context;
     private ArrayList<Pojo_Home_Obj>homeObjs;
+    private final String TAG="Developer_Cat_Adapter";
 
     public Developer_Category_Adapter(ArrayList<Pojo_Developer_Category_Obj> developerCategoryObj, Context context) {
         this.developerCategoryObj = developerCategoryObj;
@@ -61,7 +63,13 @@ public class Developer_Category_Adapter extends RecyclerView.Adapter<Developer_C
 
     @Override
     public int getItemCount() {
-        return developerCategoryObj.size();
+        try {
+            return developerCategoryObj.size();
+        }catch (Exception e){
+            e.printStackTrace();
+            Toast.makeText(context,"No Data Available",Toast.LENGTH_SHORT).show();
+        }
+        return 0;
     }
 
     class Dev_Cat extends RecyclerView.ViewHolder {
@@ -83,7 +91,8 @@ public class Developer_Category_Adapter extends RecyclerView.Adapter<Developer_C
         @OnClick(R.id.LinearLayout_Of_AllDeveloper)
         public void onClick(){
             Session.getInstance().setProductID(developerCategoryObj.get(getAdapterPosition()).getProductId());
-            Toast.makeText(context,"Pos: "+getAdapterPosition(),Toast.LENGTH_SHORT).show();
+//            Toast.makeText(context,"Pos: "+getAdapterPosition(),Toast.LENGTH_SHORT).show();
+            Log.d(TAG,"Pos: "+getAdapterPosition());
             context.startActivity(new Intent(context.getApplicationContext(), Product_Activity.class));
         }
 

@@ -33,6 +33,7 @@ import butterknife.OnClick;
 public class Home_Dev_Adapter extends RecyclerView.Adapter<Home_Dev_Adapter.Package_RV> {
     private ArrayList<Pojo_Home_Obj> home_objs;
     private Context context;
+    private final String TAG="Home_Dev_Adapter";
 //    private String IdPackage;
 
     public Home_Dev_Adapter(Context context, ArrayList<Pojo_Home_Obj> home_objs) {
@@ -41,6 +42,7 @@ public class Home_Dev_Adapter extends RecyclerView.Adapter<Home_Dev_Adapter.Pack
 
     }
 
+    @NonNull
     @Override
     public Package_RV onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
        View view= LayoutInflater.from(parent.getContext()).
@@ -57,13 +59,19 @@ public class Home_Dev_Adapter extends RecyclerView.Adapter<Home_Dev_Adapter.Pack
         holder.Text_Of_Developer.setText(home_objs.get(position).getDeveloperName());
         Glide.with(context).load(home_objs.get(position).getProjectImg()).
                 into(holder.Image_Of_Developer);
-        Log.d("Home_adapter",home_objs.get(position).getProductId()+"");
+        Log.d(TAG,home_objs.get(position).getProductId()+"");
 
     }
 
     @Override
     public int getItemCount() {
-        return home_objs.size();
+        try {
+            return home_objs.size();
+        }catch (Exception e){
+         e.printStackTrace();
+            Toast.makeText(context,"No Data Available",Toast.LENGTH_SHORT).show();
+        }
+        return 0;
     }
 
     class Package_RV extends RecyclerView.ViewHolder {
@@ -83,9 +91,10 @@ public class Home_Dev_Adapter extends RecyclerView.Adapter<Home_Dev_Adapter.Pack
 
         }
         @OnClick(R.id.LinearLayout_Of_AllDeveloper)
-       public void omClick(){
+       public void onClick(){
             Session.getInstance().setProductID((int) home_objs.get(getAdapterPosition()).getProductId());
-            Toast.makeText(context,"Pos: "+home_objs.get(getAdapterPosition()).getProductId(),Toast.LENGTH_SHORT).show();
+//            Toast.makeText(context,"Pos: "+home_objs.get(getAdapterPosition()).getProductId(),Toast.LENGTH_SHORT).show();
+            Log.d(TAG,""+getAdapterPosition());
             context.startActivity(new Intent(context.getApplicationContext(),Product_Activity.class));
         }
     }

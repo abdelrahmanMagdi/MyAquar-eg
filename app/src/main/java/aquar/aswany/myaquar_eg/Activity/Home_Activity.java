@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
@@ -25,6 +26,10 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import aquar.aswany.myaquar_eg.Fragments.Fragment.All_Data_Fragment;
+import aquar.aswany.myaquar_eg.Fragments.Fragment.Com_Data_Fragment;
+import aquar.aswany.myaquar_eg.Fragments.Fragment.Holy_Data_Fragment;
+import aquar.aswany.myaquar_eg.Fragments.Fragment.LS_Data_Fragment;
+import aquar.aswany.myaquar_eg.Fragments.Fragment.Med_Data_Fragment;
 import aquar.aswany.myaquar_eg.Fragments.Fragment.Res_Data_Fragment;
 import aquar.aswany.myaquar_eg.Models.Pojo_Home_Obj;
 import aquar.aswany.myaquar_eg.R;
@@ -81,8 +86,20 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
                     @Override
                     public void onError(ANError anError) {
                         dialog.dismiss();
-                        Log.d(TAG, "Error: " + anError.getErrorDetail());
-                        Log.d(TAG, "Error: " + anError.getErrorCode());
+                        if (anError.getErrorCode() != 0) {
+                            Log.d(TAG, "onError errorCode : " + anError.getErrorCode());
+                            Log.d(TAG, "onError errorBody : " + anError.getErrorBody());
+                            if (anError.getErrorCode() == 500) {
+                                Log.d(TAG, "onError errorBody : " + "DataBase Error");
+                                Toast.makeText(Home_Activity.this, "DataBase Error", Toast.LENGTH_SHORT).show();
+
+                            }
+
+                        } else {
+                            Log.d(TAG, "onError errorDetail : " + anError.getErrorDetail());
+                            Toast.makeText(Home_Activity.this, "Connection Lost", Toast.LENGTH_SHORT).show();
+                        }
+
                     }
                 });
 //        GetHome_Dev_Data();
@@ -165,10 +182,7 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-//            case R.id.Navigation_All:
-//                Log.d(TAG, "Linear_All" + "");
-//                fragment_All();
-//                break;
+
             case R.id.Navigation_Res:
                 Log.d(TAG, "Linear_Res" + "");
                 fragment = new Res_Data_Fragment();
@@ -178,19 +192,31 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
                 return true;
             case R.id.Navigation_Com:
                 Log.d(TAG, "Linear_Com" + "");
-                fragment_All();
+                fragment = new Com_Data_Fragment();
+                transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.Home_FrameLayout, fragment, "Com_Data_Fragment");
+                transaction.commitNow();
                 return true;
             case R.id.Navigation_Med:
                 Log.d(TAG, "Linear_Med" + "");
-                fragment_All();
+                fragment = new Med_Data_Fragment();
+                transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.Home_FrameLayout, fragment, "Med_Data_Fragment");
+                transaction.commitNow();
                 return true;
             case R.id.Navigation_HH:
                 Log.d(TAG, "Linear_HH" + "");
-                fragment_All();
+                fragment = new Holy_Data_Fragment();
+                transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.Home_FrameLayout, fragment, "Holy_Data_Fragment");
+                transaction.commitNow();
                 return true;
             case R.id.Navigation_LS:
                 Log.d(TAG, "Linear_LS" + "");
-                fragment_All();
+                fragment = new LS_Data_Fragment();
+                transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.Home_FrameLayout, fragment, "LS_Data_Fragment");
+                transaction.commitNow();
                 return true;
             default:
                 Log.d(TAG, "Default" + "");

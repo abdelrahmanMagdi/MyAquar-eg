@@ -6,11 +6,13 @@ package aquar.aswany.myaquar_eg.Utils;
 
 public class URLS {
 
-    public static final String SERVER_URL = "http://aquar.me/myaquar_eg/api/";
+    private static final String SERVER_URL = "http://aquar.me/myaquar_eg/api/";
     public static final String Alldevelopers = SERVER_URL+"alldevelopers";
     public static final String Category = SERVER_URL+"allcategory";
     public static final String Developer_category = SERVER_URL+"developers_category";
     public static final String project = SERVER_URL+"single_project";
+    public static final String Search_Price = SERVER_URL+"search_badget";
+    public static final String Search_Area = SERVER_URL+"search_area";
 
 //    public static final String projects = SERVER_URL+"projects_dev";
 //    //id = 1

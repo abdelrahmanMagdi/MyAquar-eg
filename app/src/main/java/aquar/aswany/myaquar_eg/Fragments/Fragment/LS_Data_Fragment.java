@@ -1,10 +1,11 @@
 package aquar.aswany.myaquar_eg.Fragments.Fragment;
 
 import android.app.Dialog;
-import android.support.v4.app.Fragment;
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -33,29 +34,35 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by aswany on 1/19/19.
+ * Created by aswany on 1/21/19.
  */
 
-public class Res_Data_Fragment extends Fragment {
+public class LS_Data_Fragment extends Fragment {
     private Dialog dialog;
-    private final String TAG="Res_Data_Fragment";
-    private ArrayList<Pojo_Developer_Category_Obj> pojoDeveloperCategoryObj=new ArrayList<>();
-
+    private final String TAG="LS_Data_Fragment";
     @BindView(R.id.Fragment_RV)
     RecyclerView Fragment_RV;
+    private ArrayList<Pojo_Developer_Category_Obj>pojoDeveloperCategoryObj=new ArrayList<>();
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragments, container, false);
+        ButterKnife.bind(this, view);
+        return view;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         dialog = new ProgressDialog(getActivity());
-        Receive_Res_Data();
-
+        Receive_LS_Data();
     }
 
-    private void Receive_Res_Data() {
+    private void Receive_LS_Data() {
         dialog.show();
         AndroidNetworking.get(URLS.Developer_category)
-                .addQueryParameter("id","1")
+                .addQueryParameter("id","5")
                 .setPriority(Priority.LOW)
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {
@@ -66,7 +73,7 @@ public class Res_Data_Fragment extends Fragment {
                         Gson gson= new GsonBuilder().setPrettyPrinting().create();
                         Pojo_Developer_Category_Res category_res = gson.fromJson(response.toString(),Pojo_Developer_Category_Res.class);
                         pojoDeveloperCategoryObj =category_res.getDevelopers();
-                        SetRes_DeveloperData(pojoDeveloperCategoryObj);
+                        SetLS_DeveloperData(pojoDeveloperCategoryObj);
                     }
 
                     @Override
@@ -87,18 +94,9 @@ public class Res_Data_Fragment extends Fragment {
                         }
                     }
                 });
-
     }
 
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragments, container, false);
-        ButterKnife.bind(this, view);
-        return view;
-    }
-    private void SetRes_DeveloperData(ArrayList<Pojo_Developer_Category_Obj> pojoDeveloperCategoryObj) {
+    private void SetLS_DeveloperData(ArrayList<Pojo_Developer_Category_Obj> pojoDeveloperCategoryObj) {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         Fragment_RV.setLayoutManager(layoutManager);
         Developer_Category_Adapter adapter = new Developer_Category_Adapter(pojoDeveloperCategoryObj,getActivity());
