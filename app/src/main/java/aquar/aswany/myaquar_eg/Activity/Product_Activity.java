@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,11 +43,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static android.app.PendingIntent.getActivity;
+
 public class Product_Activity extends AppCompatActivity {
 
     private final String TAG = "Product_Activity";
-    private Dialog dialog;
 
+    private Dialog dialog;
+   private Button go360;
     @BindView(R.id.Product_Slider)
     SliderLayout Product_Slider;
     private SectionPagerAdapter sectionPagerAdapter;
@@ -79,6 +83,9 @@ public class Product_Activity extends AppCompatActivity {
     @BindView(R.id.Product_Frag_Share)
     Button Product_Frag_Share;
 
+
+
+
     private ArrayList<Pojo_Project_Obj> projectObjs = new ArrayList<>();
     int Product_ID;
 
@@ -88,6 +95,18 @@ public class Product_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
         Deceleration();
+
+        go360 = (Button)findViewById(R.id.go360);
+
+        go360.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Product_Activity.this,PanoramaView_activity.class);
+                startActivity(i);
+
+            }
+        });
+
     }
 
     private void Deceleration() {
