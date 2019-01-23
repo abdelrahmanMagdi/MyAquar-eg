@@ -11,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -50,6 +52,10 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
     //Navi
     @BindView(R.id.Home_BottomNavi)
     BottomNavigationView Home_BottomNavi;
+    Button seo;
+    EditText search;
+    ImageView logo;
+    boolean vis=true;
 
     private ArrayList<Pojo_Home_Obj> pojo_home_res = new ArrayList<>();
 
@@ -58,6 +64,10 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Decelerations();
+        seo=findViewById(R.id.seobtn);
+        search=findViewById(R.id.search_text);
+        logo=findViewById(R.id.logo_image);
+
     }
 
     private void Decelerations() {
@@ -224,5 +234,17 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
 
         }
         return false;
+    }
+
+    public void searchBtn(View view) {
+        if(vis) {
+            search.setVisibility(View.VISIBLE);
+            seo.setVisibility(View.VISIBLE);
+            logo.setVisibility(View.INVISIBLE);
+            vis=false;
+        }
+    else {
+            Toast.makeText(this, "search done..!", Toast.LENGTH_SHORT).show();
+        }
     }
 }
