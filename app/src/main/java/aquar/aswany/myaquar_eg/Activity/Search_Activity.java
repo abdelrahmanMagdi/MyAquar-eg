@@ -21,8 +21,6 @@ import java.util.ArrayList;
 
 import aquar.aswany.myaquar_eg.Adapters.Search_Adapter;
 import aquar.aswany.myaquar_eg.InternalStorage.Session;
-import aquar.aswany.myaquar_eg.Models.Pojo_Projects_Obj;
-import aquar.aswany.myaquar_eg.Models.Pojo_Projects_Res;
 import aquar.aswany.myaquar_eg.Models.Pojo_S_Budget_Obj;
 import aquar.aswany.myaquar_eg.Models.Pojo_S_Budget_Res;
 import aquar.aswany.myaquar_eg.R;
@@ -34,7 +32,6 @@ public class Search_Activity extends AppCompatActivity {
     private ProgressDialog dialog;
     @BindView(R.id.Search_RecyclerView)
     RecyclerView Search_RecyclerView;
-    private ArrayList<Pojo_Projects_Obj> ProjectData = new ArrayList<>();
     private ArrayList<Pojo_S_Budget_Obj> sBudgetObjs = new ArrayList<>();
     String DeveloperId, Min, Max;
     private final String TAG = "Search_Activity";
@@ -49,7 +46,7 @@ public class Search_Activity extends AppCompatActivity {
 
     private void Decelerations() {
         dialog = new ProgressDialog(this);
-        DeveloperId = Session.getInstance().getDeveloperID();
+//        DeveloperId = Session.getInstance().getDeveloperID();
         Log.d("DevID", DeveloperId);
 //        getProjectsData();
 //        Search_Price_Method(Min, Max);
@@ -136,45 +133,7 @@ public class Search_Activity extends AppCompatActivity {
                 });
     }
 
-    private void getProjectsData() {
-        dialog.show();
-        Log.d("URL: ", URLS.Alldevelopers);
 
-        AndroidNetworking.get(URLS.project)
-                .setPriority(Priority.LOW)
-                .addQueryParameter("id", DeveloperId)
-                .build()
-                .getAsJSONObject(new JSONObjectRequestListener() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        dialog.dismiss();
-                        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-                        Pojo_Projects_Res pojoProjectsObj = gson.fromJson(response.toString(), Pojo_Projects_Res.class);
-                        ProjectData = pojoProjectsObj.getProjects();
-//                        setProjectsData(ProjectData);
-                        Log.d("Response", response.toString());
-                    }
-
-                    @Override
-                    public void onError(ANError anError) {
-                        dialog.dismiss();
-                        if (anError.getErrorCode() != 0) {
-                            Log.d(TAG, "onError errorCode : " + anError.getErrorCode());
-                            Log.d(TAG, "onError errorBody : " + anError.getErrorBody());
-                            if (anError.getErrorCode() == 500) {
-                                Log.d(TAG, "onError errorBody : " + "DataBase Error");
-                                Toast.makeText(Search_Activity.this, "DataBase Error", Toast.LENGTH_SHORT).show();
-
-                            }
-
-                        } else {
-                            Log.d(TAG, "onError errorDetail : " + anError.getErrorDetail());
-                            Toast.makeText(Search_Activity.this, "Connection Lost", Toast.LENGTH_SHORT).show();
-                        }
-
-                    }
-                });
-    }
 
     private void setProjectsData(ArrayList<Pojo_S_Budget_Obj> projectData) {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,38 +11,323 @@
     tools:context="aquar.aswany.myaquar_eg.Activity.Product_Activity">
 
 
-    <com.daimajia.slider.library.SliderLayout
-        android:id="@+id/Product_Slider"
-        android:layout_width="match_parent"
-        android:layout_height="230dp">
-    </com.daimajia.slider.library.SliderLayout>
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tabs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/Product_Slider"
-        android:background="@android:color/white"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        app:tabGravity="fill"
-        app:tabIndicatorColor="#810000"
-        app:tabMode="fixed"
-        app:tabSelectedTextColor="#810000"
-        app:tabTextColor="@android:color/black" />
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/tabs">
+        >
 
-    </android.support.v4.view.ViewPager>
 
-    <FrameLayout
-        android:id="@+id/Product_FrameLayout"
-        android:layout_width="match_parent"
-        android:layout_weight="4"
-        android:layout_height="0dp"/>
+
+        <com.daimajia.slider.library.SliderLayout
+            android:id="@+id/Product_Slider"
+            android:layout_width="match_parent"
+            android:layout_height="230dp">
+        </com.daimajia.slider.library.SliderLayout>
+
+        <ImageView
+            android:src="@drawable/triangle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-13dp"
+            android:layout_marginLeft="30dp"
+            android:layout_above="@+id/Relative"
+             />
+
+        <RelativeLayout
+            android:id="@+id/Relative"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:background="#ba2521"
+            android:layout_below="@+id/Product_Slider"
+            android:layout_alignParentStart="true">
+
+            <TextView
+                android:id="@+id/EGP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="29dp"
+                android:text="EGP"
+                android:textColor="@color/white"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/product_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="97dp"
+                android:text="560,0000"
+                android:textColor="@color/white"
+                android:textSize="22sp" />
+
+
+            <RelativeLayout
+                android:layout_marginRight="5dp"
+                android:id="@+id/re_phone"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="5dp"
+                android:layout_alignParentRight="true"
+                android:background="@null">
+
+
+                <Button
+                    android:id="@+id/Product_Frag_Share"
+                    android:background="@drawable/share_white_icon"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="7dp"
+                     />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@+id/re_phone"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="5dp"
+                android:background="@null">
+
+                <Button
+                    android:id="@+id/Product_Frag_Call"
+                    android:background="@drawable/icon_phone"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    />
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/Product_Project"
+                android:layout_below="@+id/EGP"
+                android:textSize="22sp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:text="Life park , El shoruk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@+id/Relative"
+            />
+        <LinearLayout
+            android:id="@+id/linear"
+            android:layout_below="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="13dp"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1.7"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textColor="#a2171b"
+                    android:layout_width="wrap_content"
+                    android:text="Property Type"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="18sp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/Product_Frag_Type"
+                    android:layout_width="wrap_content"
+                    android:text="Appartment"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="16sp"
+
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textColor="#a2171b"
+                    android:layout_width="wrap_content"
+                    android:text="@string/Product_BedRoom"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="18sp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/Product_Frag_BedRoom"
+                    android:layout_width="wrap_content"
+                    android:text="1"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content" />
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:text="@string/Product_Accommodation"
+                    android:layout_marginBottom="5dp"
+                    android:textColor="#a2171b"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/Product_Frag_Accommodation"
+                    android:layout_width="wrap_content"
+                    android:text="@string/Product_Accommodation"
+                    android:textSize="16sp"
+
+                    android:layout_height="wrap_content" />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="17dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+
+                    android:layout_width="2dp"
+                    android:background="#a2171b"
+                    android:layout_height="180dp" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginLeft="13dp"
+                android:layout_width="0dp"
+                android:layout_weight="1.7"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textStyle="bold"
+                    android:textColor="#a2171b"
+                    android:layout_width="wrap_content"
+                    android:text="@string/Product_Size"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="18sp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/Product_Frag_Size"
+                    android:layout_width="wrap_content"
+                    android:text="80 m2 total"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    />
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textColor="#a2171b"
+                    android:layout_width="wrap_content"
+                    android:text="@string/Product_BathRoom"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="18sp"
+
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/Product_Frag_BathRoom"
+                    android:layout_width="wrap_content"
+                    android:text="1"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="16sp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/des"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#a2171b"
+            android:layout_below="@+id/linear"
+            android:layout_width="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Product_Des"
+            />
+        <TextView
+            android:id="@+id/Product_Frag_Details"
+            android:layout_below="@+id/des"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:lineSpacingExtra="3dp"
+            android:layout_marginRight="10dp"
+            android:text="80mdiahsiohdjsadfbSUVFIUDSVUFVADSBFDBSJFBJDSBFJBSDAJBFJD"
+            android:textSize="17sp"
+            android:layout_height="wrap_content" />
+
+
+
 
     </RelativeLayout>
+
+</ScrollView>
+
+    <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--android:orientation="vertical"-->
+    <!--android:background="@color/white"-->
+    <!--tools:context="aquar.aswany.myaquar_eg.Activity.Product_Activity">-->
+
+
+    <!--<com.daimajia.slider.library.SliderLayout-->
+    <!--android:id="@+id/Product_Slider"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="230dp">-->
+    <!--</com.daimajia.slider.library.SliderLayout>-->
+
+    <!--<android.support.design.widget.TabLayout-->
+    <!--android:id="@+id/tabs"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@id/Product_Slider"-->
+    <!--android:background="@android:color/white"-->
+    <!--android:focusable="true"-->
+    <!--android:focusableInTouchMode="true"-->
+    <!--app:tabGravity="fill"-->
+    <!--app:tabIndicatorColor="#810000"-->
+    <!--app:tabMode="fixed"-->
+    <!--app:tabSelectedTextColor="#810000"-->
+    <!--app:tabTextColor="@android:color/black" />-->
+
+    <!--<android.support.v4.view.ViewPager-->
+    <!--android:id="@+id/viewPager"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_below="@+id/tabs">-->
+
+    <!--</android.support.v4.view.ViewPager>-->
+
+    <!--<FrameLayout-->
+    <!--android:id="@+id/Product_FrameLayout"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_weight="4"-->
+    <!--android:layout_height="0dp"/>-->
+
+    <!--</RelativeLayout>-->

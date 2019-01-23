@@ -33,7 +33,7 @@ import butterknife.OnClick;
 public class Developer_Category_Adapter extends RecyclerView.Adapter<Developer_Category_Adapter.Dev_Cat> {
     private ArrayList<Pojo_Developer_Category_Obj> developerCategoryObj;
     private Context context;
-    private ArrayList<Pojo_Home_Obj>homeObjs;
+//    private ArrayList<Pojo_Home_Obj>homeObjs;
     private final String TAG="Developer_Cat_Adapter";
 
     public Developer_Category_Adapter(ArrayList<Pojo_Developer_Category_Obj> developerCategoryObj, Context context) {

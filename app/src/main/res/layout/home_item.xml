@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/Image_Of_AllDeveloper"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="190dp"
         android:scaleType="centerInside"/>
     <TextView
         android:id="@+id/Text_Of_AllDeveloper"
@@ -23,7 +23,6 @@
         android:background="#4000"
         android:textColor="#fff"
         android:paddingStart="@dimen/margin_small"
-
         android:textSize="18sp"/>
     <TextView
         android:id="@+id/Text_Of_AllProjects"

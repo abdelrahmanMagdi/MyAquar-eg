@@ -64,7 +64,7 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
         ButterKnife.bind(this);
         dialog = new ProgressDialog(this);
         AndroidNetworking.initialize(this);
-        GetHome_Categories_Data();
+//        GetHome_Categories_Data();
         fragment_All();
         Home_BottomNavi.setOnNavigationItemSelectedListener(this);
 
