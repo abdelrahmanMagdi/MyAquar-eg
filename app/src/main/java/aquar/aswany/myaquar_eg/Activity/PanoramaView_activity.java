@@ -36,7 +36,7 @@ public class PanoramaView_activity extends AppCompatActivity {
         super.onResume();
 
     }
-
+//
     @Override
     protected void onPause() {
         super.onPause();
