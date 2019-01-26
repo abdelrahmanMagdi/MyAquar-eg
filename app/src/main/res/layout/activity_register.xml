@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".Register_activity">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_gravity="center"
+            android:src="@drawable/white_logo"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="Sign up"
+            android:textSize="25sp"
+            android:paddingLeft="15dp"
+            android:textColor="#fff"
+            android:layout_marginBottom="15dp"
+
+
+            />
+
+
+        <EditText
+
+            android:id="@+id/username"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginBottom="14dp"
+            android:hint="Your Name"
+            android:inputType="textPersonName"
+            android:lines="1"
+            android:paddingLeft="13dp"
+            android:textColorHint="#fff"
+            />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginBottom="14dp"
+            android:hint="Your Email"
+            android:inputType="textEmailAddress"
+            android:lines="1"
+            android:paddingLeft="13dp"
+            android:textColorHint="#fff"
+            />
+
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginBottom="14dp"
+            android:hint="Your Password"
+            android:lines="1"
+            android:inputType="textPassword"
+            android:paddingLeft="13dp"
+            android:textColorHint="#fff"
+            />
+
+        <EditText
+            android:id="@+id/phone"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginBottom="14dp"
+            android:hint="Your Phone"
+            android:inputType="number"
+            android:lines="1"
+            android:paddingLeft="13dp"
+            android:textColorHint="#fff"
+            />
+
+        <EditText
+            android:id="@+id/jobTitle"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginBottom="40dp"
+            android:hint="Your Job Title "
+            android:inputType="text"
+            android:lines="1"
+            android:paddingLeft="13dp"
+            android:textColorHint="#fff"
+            />
+
+        <Button
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:onClick="Confirm"
+            android:text="Sign Up"
+            android:outlineAmbientShadowColor="#fff"
+            android:background="@drawable/button"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:textColor="#fff" />
+
+    </LinearLayout>
+
+</ScrollView>
