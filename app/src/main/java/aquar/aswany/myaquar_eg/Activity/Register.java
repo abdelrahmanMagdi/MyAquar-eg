@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import aquar.aswany.myaquar_eg.R;
+
 public class Register extends AppCompatActivity {
     EditText username;
     EditText email;

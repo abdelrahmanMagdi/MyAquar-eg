@@ -111,7 +111,7 @@ public class Product_Activity extends AppCompatActivity {
         go_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Product_Activity.this,Registration_Activity.class);
+                Intent i = new Intent(Product_Activity.this,login.class);
                 startActivity(i);
             }
         });

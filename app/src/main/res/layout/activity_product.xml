@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,10 +10,16 @@
     android:background="@color/white"
     tools:context="aquar.aswany.myaquar_eg.Activity.Product_Activity">
 
+<ScrollView
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="4"
+    >
 
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -459,28 +465,36 @@
 
 
     </RelativeLayout>
-    <Button
-        android:id="@+id/more_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="More Information"
-        android:layout_gravity="right"
-        android:textColor="@android:color/white"
-        android:background="@drawable/mor_info_btn"
-        android:padding="10dp"
-        android:textSize="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginRight="10dp"
-        android:textAllCaps="false"
-        android:textStyle="bold"
-        />
+
 
 </LinearLayout>
 
 
 </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:orientation="vertical">
 
+        <Button
+            android:id="@+id/more_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/mor_info_btn"
+            android:padding="10dp"
+            android:text="More Information"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>
     <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
     <!--xmlns:tools="http://schemas.android.com/tools"-->
     <!--android:layout_width="match_parent"-->
