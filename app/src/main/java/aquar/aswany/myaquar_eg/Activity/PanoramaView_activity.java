@@ -23,6 +23,7 @@ public class PanoramaView_activity extends AppCompatActivity {
         setContentView(R.layout.panorama_view);
 
         vrPanoramaView=findViewById(R.id.panorama);
+
         Bitmap icon = BitmapFactory.decodeResource(getResources(),R.drawable.newphoto);
         vrPanoramaView.loadImageFromBitmap(icon, new VrPanoramaView.Options());
         vrPanoramaView.setInfoButtonEnabled(false);
@@ -39,12 +40,5 @@ public class PanoramaView_activity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-    }
-
-    @Override
-    public void onBackPressed() {
-        Intent intent1 = new Intent(getApplicationContext(),Product_Activity.class);
-        startActivity(intent1);
-        finish();
     }
 }

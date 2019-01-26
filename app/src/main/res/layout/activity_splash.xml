@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:background="#fff"
-    tools:context="aquar.aswany.myaquar_eg.Activity.Splash_Activity">
+    tools:context="aquar.aswany.myaquar_eg.Activity.splash">
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

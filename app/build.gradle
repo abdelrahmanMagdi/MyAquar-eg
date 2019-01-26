@@ -54,5 +54,9 @@ dependencies {
     //VR
     implementation 'com.google.vr:sdk-panowidget:1.180.0'
 
+    //zoom
+    implementation 'com.github.MikeOrtiz:TouchImageView:1.4.0'
+    implementation 'com.google.vr:sdk-panowidget:1.180.0'
+
 
 }

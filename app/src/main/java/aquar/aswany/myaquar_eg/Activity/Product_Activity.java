@@ -50,7 +50,7 @@ public class Product_Activity extends AppCompatActivity {
     private final String TAG = "Product_Activity";
 
     private Dialog dialog;
-   private Button go360;
+   private Button go360 , go_info,location_btn,str_btn;
     @BindView(R.id.Product_Slider)
     SliderLayout Product_Slider;
     private SectionPagerAdapter sectionPagerAdapter;
@@ -106,6 +106,39 @@ public class Product_Activity extends AppCompatActivity {
 
             }
         });
+
+        go_info=(Button)findViewById(R.id.more_info);
+        go_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Product_Activity.this,Registration_Activity.class);
+                startActivity(i);
+            }
+        });
+
+        location_btn=(Button)findViewById(R.id.location);
+        location_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String geoUri = "http://maps.google.com/maps?q=loc:" + 30.145305 + "," + 31.630784 + " ("+"HDG"+")";
+                Intent map = new Intent(Intent.ACTION_VIEW, Uri.parse(geoUri));
+                startActivity(map);
+
+            }
+        });
+
+        str_btn=(Button)findViewById(R.id.struct1);
+        str_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent2 = new Intent(Product_Activity.this,struct_activity.class);
+                startActivity(intent2);
+
+
+            }
+        });
+
 
     }
 

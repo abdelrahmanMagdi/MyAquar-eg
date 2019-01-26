@@ -11,7 +11,10 @@
     tools:context="aquar.aswany.myaquar_eg.Activity.Product_Activity">
 
 
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -99,6 +102,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/phone"
                 android:layout_marginRight="5dp"
                 android:layout_toLeftOf="@+id/re_phone"
                 android:layout_width="40dp"
@@ -110,6 +114,53 @@
                 <Button
                     android:id="@+id/Product_Frag_Call"
                     android:background="@drawable/icon_phone"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/loc"
+                android:layout_marginRight="5dp"
+                android:backgroundTint="@android:color/white"
+                android:layout_toLeftOf="@+id/phone"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="5dp"
+                android:background="@null">
+
+                <Button
+                    android:id="@+id/location"
+                    android:background="@drawable/location"
+                    android:backgroundTint="@android:color/white"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@+id/loc"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="5dp"
+                android:background="@null">
+
+                <Button
+                    android:id="@+id/struct1"
+                    android:backgroundTint="@android:color/white"
+                    android:background="@drawable/struct_icon"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_alignParentTop="true"
@@ -407,9 +458,26 @@
             android:layout_height="wrap_content" />
 
 
-
-
     </RelativeLayout>
+    <Button
+        android:id="@+id/more_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="More Information"
+        android:layout_gravity="right"
+        android:textColor="@android:color/white"
+        android:background="@drawable/mor_info_btn"
+        android:padding="10dp"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        />
+
+</LinearLayout>
+
 
 </ScrollView>
 
