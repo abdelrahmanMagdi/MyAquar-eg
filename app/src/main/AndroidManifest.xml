@@ -14,11 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".Activity.Register"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
+
         <activity
             android:name=".Activity.Home_Activity"
             android:screenOrientation="portrait"
@@ -52,6 +48,11 @@
             ></activity>
         <activity
             android:name=".Activity.login"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity
+            android:name=".Activity.Register"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             />
