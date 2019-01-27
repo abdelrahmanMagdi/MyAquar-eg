@@ -31,12 +31,11 @@ public class login extends AppCompatActivity {
 
 
     public void skip(View view) {
-        Toast.makeText(this, "Skiped..!", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this,Home_Activity.class));
     }
 
     public void login(View view) {
-
-            Toast.makeText(this, "Done..!", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this,Home_Activity.class));
         }
 
     }

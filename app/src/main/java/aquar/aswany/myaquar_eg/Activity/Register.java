@@ -1,5 +1,6 @@
 package aquar.aswany.myaquar_eg.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -33,5 +34,6 @@ public class Register extends AppCompatActivity {
 
     public void Confirm(View view) {
         Toast.makeText(this,"Done..!", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this,Home_Activity.class));
     }
 }
