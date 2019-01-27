@@ -62,12 +62,7 @@ public class Popular_Home_Activity extends AppCompatActivity {
                         Pojo_Developer_Category_Res category_res = gson.fromJson(response.toString(),Pojo_Developer_Category_Res.class);
                         PopularProjects =category_res.getDevelopers();
                         SetPopularProjectsData(PopularProjects);
-//                        {"developers":
-// [{"product_id":1,"category_id":1,"category_name":"residential","developer_id":1
-// ,"developer_name":"HDG","project_img":"http:\/\/aquar.me\/myaquar_eg\/uploads\/products\/azad_main.jpg
-// ","description":"prime location with an attractive payment plan,
-// 10% Downpayment - 10% after 3 Months - 10% on Delivery &  Equal installments over 6 Years \r\n"
-// ,"location":"6 october","project_name":"Azad"}
+
                     }
 
                     @Override
@@ -87,6 +82,7 @@ public class Popular_Home_Activity extends AppCompatActivity {
                             Toast.makeText(Popular_Home_Activity.this, "Connection Lost", Toast.LENGTH_SHORT).show();
                         }
                     }
+
                 });
     }
 

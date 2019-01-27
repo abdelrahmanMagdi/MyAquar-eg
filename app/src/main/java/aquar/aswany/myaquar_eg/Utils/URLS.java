@@ -14,6 +14,7 @@ public class URLS {
     public static final String Search_Price = SERVER_URL+"search_badget";
     public static final String Search_Area = SERVER_URL+"search_area";
     public static final String PopularP = SERVER_URL+"popular_projects";
+    public static final String Registration = SERVER_URL+"registration";
 
 //    public static final String projects = SERVER_URL+"projects_dev";
 //    //id = 1
@@ -21,7 +22,6 @@ public class URLS {
 //    //id=1 , cat_id=2
 //    public static final String SearchWithPrice=SERVER_URL+"search_badget";
 //    // ex : min = 1000  max = 2000
-
 
 
 }
