@@ -70,6 +70,7 @@ public class Register extends AppCompatActivity {
                         Toast.makeText(Register.this, "Done..!", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(Register.this,Home_Activity.class));
                         finish();
+
                     }
 
                     @Override

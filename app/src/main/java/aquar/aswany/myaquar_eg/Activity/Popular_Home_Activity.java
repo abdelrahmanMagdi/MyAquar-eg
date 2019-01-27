@@ -82,6 +82,7 @@ public class Popular_Home_Activity extends AppCompatActivity {
                             Toast.makeText(Popular_Home_Activity.this, "Connection Lost", Toast.LENGTH_SHORT).show();
                         }
                     }
+
                 });
     }
 

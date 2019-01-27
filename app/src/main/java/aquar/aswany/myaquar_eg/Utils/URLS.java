@@ -24,5 +24,4 @@ public class URLS {
 //    // ex : min = 1000  max = 2000
 
 
-
 }
