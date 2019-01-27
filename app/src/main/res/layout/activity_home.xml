@@ -10,7 +10,13 @@
     tools:context="aquar.aswany.myaquar_eg.Activity.Home_Activity">
 
 
-
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/ToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        android:layout_gravity="center"
+        android:gravity="center">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -50,13 +56,16 @@
                 android:layout_marginEnd="@dimen/margin_small"
                 android:layout_centerVertical="true"
                 android:background="@drawable/ic_search_black_24dp" />
+
         </RelativeLayout>
 
-
+    </android.support.v7.widget.Toolbar>
     <FrameLayout
+        android:layout_below="@+id/ToolBar"
         android:id="@+id/Home_FrameLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/Home_BottomNavi"
 
         />
 

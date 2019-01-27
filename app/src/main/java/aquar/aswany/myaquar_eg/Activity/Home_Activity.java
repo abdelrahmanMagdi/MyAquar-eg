@@ -1,5 +1,7 @@
 package aquar.aswany.myaquar_eg.Activity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -8,7 +10,9 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -39,7 +43,7 @@ import aquar.aswany.myaquar_eg.Utils.URLS;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class Home_Activity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class Home_Activity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener, Toolbar.OnMenuItemClickListener {
     private static final String TAG = "Home_Activity_Res";
     private ProgressDialog dialog;
     private Fragment fragment;
@@ -55,7 +59,10 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
     Button seo;
     EditText search;
     ImageView logo;
-    boolean vis=true;
+    @BindView(R.id.ToolBar)
+    Toolbar toolbar;
+
+    boolean vis = true;
 
     private ArrayList<Pojo_Home_Obj> pojo_home_res = new ArrayList<>();
 
@@ -64,10 +71,16 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Decelerations();
-        seo=findViewById(R.id.seobtn);
-        search=findViewById(R.id.search_text);
-        logo=findViewById(R.id.logo_image);
+        seo = findViewById(R.id.seobtn);
+        search = findViewById(R.id.search_text);
+        logo = findViewById(R.id.logo_image);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_navi, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     private void Decelerations() {
@@ -77,8 +90,8 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
 //        GetHome_Categories_Data();
         fragment_All();
         Home_BottomNavi.setOnNavigationItemSelectedListener(this);
-
-
+        setSupportActionBar(toolbar);
+        toolbar.setOnMenuItemClickListener(this);
     }
 
     private void GetHome_Categories_Data() {
@@ -115,65 +128,6 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
 //        GetHome_Dev_Data();
     }
 
-//    private void GetHome_Developer_Data() {
-//        dialog.show();
-//        Log.d("URL: ", URLS.Alldevelopers);
-//        AndroidNetworking.get(URLS.Alldevelopers)
-//                .setPriority(Priority.LOW)
-//                .build()
-//                .getAsJSONObject(new JSONObjectRequestListener() {
-//                    @Override
-//                    public void onResponse(JSONObject response) {
-//                        dialog.dismiss();
-//                        Log.d("HomeResponse", response.toString());
-//
-//                        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-//                        Pojo_Home_Res pojoHomeObj = gson.fromJson(response.toString(), Pojo_Home_Res.class);
-//                        pojo_home_res = pojoHomeObj.getDevelopers();
-//                        setHome_DeveloperData(pojo_home_res);
-//                    }
-//
-//                    @Override
-//                    public void onError(ANError anError) {
-//                        dialog.dismiss();
-//                        if (anError.getErrorCode() != 0) {
-//                            Log.d(TAG, "onError errorCode : " + anError.getErrorCode());
-//                            Log.d(TAG, "onError errorBody : " + anError.getErrorBody());
-//                            if (anError.getErrorCode() == 500) {
-//                                Log.d(TAG, "onError errorBody : " + "DataBase Error");
-//                                Toast.makeText(Home_Activity.this, "DataBase Error", Toast.LENGTH_SHORT).show();
-//
-//                            }
-//
-//                        } else {
-//                            Log.d(TAG, "onError errorDetail : " + anError.getErrorDetail());
-//                            Toast.makeText(Home_Activity.this, "Connection Lost", Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                });
-//    }
-
-//    private void setHome_DeveloperData(ArrayList<Pojo_Home_Obj> Developers) {
-//        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-//        Home_RecyclerView.setLayoutManager(layoutManager);
-//        Home_Dev_Adapter adapter = new Home_Dev_Adapter(Home_Activity.this, Developers);
-//        Home_RecyclerView.setAdapter(adapter);
-//
-//
-//    }
-
-    private void dismissProgressDialog() {
-        if (dialog != null && dialog.isShowing()) {
-            dialog.dismiss();
-        }
-    }
-
-    @Override
-    protected void onDestroy() {
-        dismissProgressDialog();
-        super.onDestroy();
-    }
-
 
     private void fragment_All() {
         fragment = new All_Data_Fragment();
@@ -182,11 +136,32 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
         transaction.commit();
     }
 
-
     @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        finishAffinity();
+    public boolean onMenuItemClick(MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case R.id.MenuItem_FindHome:
+                break;
+            case R.id.MenuItem_PHome:
+                break;
+            case R.id.MenuItem_Magazine:
+                break;
+            case R.id.MenuItem_Sub:
+                break;
+            case R.id.MenuItem_News:
+                break;
+            case R.id.MenuItem_FreeAc:
+                startActivity(new Intent(Home_Activity.this, login.class));
+                break;
+            case R.id.MenuItem_Contact:
+                Intent contact = new Intent(Intent.ACTION_DIAL);
+                contact.setData(Uri.parse("tel:01095488883"));
+                startActivity(contact);
+                break;
+            default:
+                break;
+        }
+        return Home_Activity.super.onOptionsItemSelected(menuItem);
+
     }
 
     @Override
@@ -237,14 +212,43 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
     }
 
     public void searchBtn(View view) {
-        if(vis) {
+        if (vis) {
             search.setVisibility(View.VISIBLE);
             seo.setVisibility(View.VISIBLE);
             logo.setVisibility(View.INVISIBLE);
-            vis=false;
-        }
-    else {
+            vis = false;
+        } else {
             Toast.makeText(this, "search done..!", Toast.LENGTH_SHORT).show();
         }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        search.setVisibility(View.INVISIBLE);
+        seo.setVisibility(View.INVISIBLE);
+        logo.setVisibility(View.VISIBLE);
+        fragment_All();
+        vis = true;
+    }
+
+    private void dismissProgressDialog() {
+        if (dialog != null && dialog.isShowing()) {
+            dialog.dismiss();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        dismissProgressDialog();
+        super.onDestroy();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finishAffinity();
+    }
+
+
 }

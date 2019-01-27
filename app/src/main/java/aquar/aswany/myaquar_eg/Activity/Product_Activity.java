@@ -201,7 +201,8 @@ public class Product_Activity extends AppCompatActivity {
             Product_Frag_BathRoom.setText(projectObjs.get(0).getBathsrooms() + "");
             Product_Frag_Accommodation.setText(projectObjs.get(0).getAccommodation() + "");
             Product_Frag_Size.setText(projectObjs.get(0).getArea() + "");
-            Product_Project.setText(projectObjs.get(0).getLocation() + " - ");
+            Product_Project.setText(projectObjs.get(0).getLocation() + "");
+            product_price.setText(projectObjs.get(0).getPrice()+"");
 
         } catch (Exception e) {
             Toast.makeText(Product_Activity.this, "Package Lost !!", Toast.LENGTH_SHORT).show();

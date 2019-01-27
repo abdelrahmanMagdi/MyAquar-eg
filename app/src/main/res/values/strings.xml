@@ -9,6 +9,15 @@
     <string name="ToolBar_HH">Holy Day Home</string>
     <string name="ToolBar_Ls">Lunch Soon</string>
 
+    //menuItem
+    <string name="MenuItem_FindHome">Find Your Home</string>
+    <string name="MenuItem_PHome">Poplar Home</string>
+    <string name="MenuItem_Magazine">Free Magazine</string>
+    <string name="MenuItem_Sub">Subscribe</string>
+    <string name="MenuItem_News">Real State News</string>
+    <string name="MenuItem_FreeAc">Get Free Account</string>
+    <string name="MenuItem_Contact">Contact us</string>
+
     //Product_details
     <string name="Product_Des">Description:</string>
     <string name="Product_Type">Property Type</string>

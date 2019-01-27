@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/MenuItem_FindHome"
+        android:title="@string/MenuItem_FindHome" />
+
+    <item
+        android:id="@+id/MenuItem_PHome"
+        android:title="@string/MenuItem_PHome" />
+    <item
+        android:id="@+id/MenuItem_Magazine"
+        android:title="@string/MenuItem_Magazine" />
+    <item
+        android:id="@+id/MenuItem_Sub"
+        android:title="@string/MenuItem_Sub" />
+    <item
+        android:id="@+id/MenuItem_News"
+        android:title="@string/MenuItem_News" />
+    <item
+        android:id="@+id/MenuItem_FreeAc"
+        android:title="@string/MenuItem_FreeAc" />
+    <item
+        android:id="@+id/MenuItem_Contact"
+        android:title="@string/MenuItem_Contact" />
+
+</menu>
+
