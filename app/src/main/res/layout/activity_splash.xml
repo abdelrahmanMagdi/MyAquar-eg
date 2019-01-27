@@ -11,8 +11,10 @@
 
 
     <LinearLayout
+
+
         android:id="@+id/lina_id"
-        android:background="@drawable/spalsh33"
+        android:background="@drawable/spalsh333"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -22,14 +24,16 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/logox"
+        android:src="@drawable/logoxx"
         android:scaleType="centerInside"
         android:id="@+id/logo"/>
 
 
-
+/*
+        */
 
     <ProgressBar
+
         android:id="@+id/prog"
         android:paddingTop="20dp"
         android:layout_width="match_parent"

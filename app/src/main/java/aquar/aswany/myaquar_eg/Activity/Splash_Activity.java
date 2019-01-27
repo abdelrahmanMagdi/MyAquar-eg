@@ -46,6 +46,8 @@ ll=(LinearLayout)findViewById(R.id.lina_id);
         Animation myanim2 = AnimationUtils.loadAnimation(this,R.anim.mysplashanimation);
         pro.startAnimation(myanim2);
 
+
+        ////
     }
 
 
