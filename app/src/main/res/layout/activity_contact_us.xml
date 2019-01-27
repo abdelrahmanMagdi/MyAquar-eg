@@ -26,8 +26,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="About us : "
-        android:textColor="#fff"
+        android:text="Contact us : "
+        android:textColor="#dc0200"
+        android:textStyle="bold"
         android:textSize="25sp"
         android:layout_margin="10dp"
         />
@@ -37,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:text="rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr\nrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr\nrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr\nrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr\nrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr\nrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr\nrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr\nrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr\nrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
+        android:text="This page was last edited on 25 January 2019, at 09:34 (UTC). \nText is available under the Creative Commons Attribution-ShareAlike License; additional terms may apply. \nBy using this site, you agree to the Terms of Use and Privacy Policy. \nWikipedia® is a registered trademark of the Wikipedia Foundation, Inc.,a non-profit organization."
         android:textSize="20sp"
         android:textColor="#fff"
         />
@@ -47,18 +48,27 @@
         android:orientation="horizontal"
         android:layout_gravity="center"
         >
-       <ImageView
+       <Button
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:src="@drawable/ic_phone_in_talk_red_60dp"
+           android:background="@drawable/call_button"
            android:onClick="call_us"
+           android:text="Call now"
+           android:textColor="#fff"
+           android:textSize="20sp"
+           android:textAllCaps="false"
            android:layout_marginTop="20dp"
            />
-        <ImageView
+
+        <Button
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:src="@drawable/ic_mail_outline_blue_24dp"
+           android:background="@drawable/mail_button"
             android:onClick="email_us"
+            android:text="Mail"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:textAllCaps="false"
             android:layout_marginLeft="90dp"
            android:layout_marginTop="20dp"
            />
