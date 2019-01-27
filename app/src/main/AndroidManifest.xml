@@ -71,6 +71,11 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             />
+        <activity
+            android:name=".Activity.Real_state"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
     </application>
 
 </manifest>

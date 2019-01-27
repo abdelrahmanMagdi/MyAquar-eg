@@ -15,7 +15,7 @@
         android:id="@+id/MenuItem_Sub"
         android:title="@string/MenuItem_Sub" />
     <item
-        android:id="@+id/MenuItem_News"
+        android:id="@+id/MenuItem_Real_state"
         android:title="@string/MenuItem_News" />
     <item
         android:id="@+id/MenuItem_FreeAc"

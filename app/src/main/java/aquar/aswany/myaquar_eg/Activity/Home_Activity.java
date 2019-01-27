@@ -146,7 +146,8 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
                 break;
             case R.id.MenuItem_Sub:
                 break;
-            case R.id.MenuItem_News:
+            case R.id.MenuItem_Real_state:
+                 startActivity(new Intent(Home_Activity.this,Real_state.class));
                 break;
             case R.id.MenuItem_FreeAc:
                 startActivity(new Intent(Home_Activity.this, login.class));
