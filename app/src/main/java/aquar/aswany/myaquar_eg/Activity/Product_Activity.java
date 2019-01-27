@@ -247,7 +247,7 @@ public class Product_Activity extends AppCompatActivity {
     @OnClick(R.id.Product_Frag_Call)
     public void onCall() {
         Intent contact = new Intent(Intent.ACTION_DIAL);
-        contact.setData(Uri.parse("tel:01095488883"));
+        contact.setData(Uri.parse("tel:01033113330"));
         startActivity(contact);
     }
     @OnClick(R.id.Product_Frag_Share)

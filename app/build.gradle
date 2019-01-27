@@ -58,5 +58,7 @@ dependencies {
     implementation 'com.github.MikeOrtiz:TouchImageView:1.4.0'
     implementation 'com.google.vr:sdk-panowidget:1.180.0'
 
+    //circle
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
 
 }

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@drawable/background"
+    tools:context="aquar.aswany.myaquar_eg.Activity.subscribe">
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       android:layout_gravity="center_vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Subscribe"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/holo_red_dark"
+        android:layout_gravity="center" />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Subscribe To see our update firstly"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:layout_gravity="center" />
+
+    <EditText
+
+        android:id="@+id/sub_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint="Enter Your E_mail"
+        android:textColorHint="@android:color/white"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:background="@drawable/txt_background"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        />
+
+    <EditText
+        android:id="@+id/sub_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="phone"
+        android:hint="Enter Your Phone"
+        android:textColorHint="@android:color/white"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:background="@drawable/txt_background"
+        android:layout_margin="20dp"/>
+    <Button
+        android:id="@+id/sub_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+
+        android:background="@drawable/mor_info_btn"
+        android:padding="10dp"
+        android:text= "Subscribe"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+   </LinearLayout>
+</LinearLayout>
