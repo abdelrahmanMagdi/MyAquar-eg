@@ -7,11 +7,11 @@
     <string name="ToolBar_Com">Commercial</string>
     <string name="ToolBar_Med">Medical</string>
     <string name="ToolBar_HH">Holy Day Home</string>
-    <string name="ToolBar_Ls">Lunch Soon</string>
+    <string name="ToolBar_Ls">Launch Soon</string>
 
     //menuItem
     <string name="MenuItem_FindHome">Find Your Home</string>
-    <string name="MenuItem_PHome">Poplar Home</string>
+    <string name="MenuItem_PHome">Popular Home</string>
     <string name="MenuItem_Magazine">Free Magazine</string>
     <string name="MenuItem_Sub">Subscribe</string>
     <string name="MenuItem_News">Real State News</string>
