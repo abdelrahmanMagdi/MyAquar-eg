@@ -29,7 +29,7 @@ public class login extends AppCompatActivity {
         startActivity(new Intent(this,Register.class));
     }
 
-//jkgkj.jugjug
+//jkgkj.jugjughhj
     public void skip(View view) {
         startActivity(new Intent(this,Home_Activity.class));
     }
