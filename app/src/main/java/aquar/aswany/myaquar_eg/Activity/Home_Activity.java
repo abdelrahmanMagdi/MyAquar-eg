@@ -19,7 +19,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.androidnetworking.AndroidNetworking;
@@ -56,7 +55,6 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
     //Navi
     @BindView(R.id.Home_BottomNavi)
     BottomNavigationView Home_BottomNavi;
-    Button seo;
     EditText search;
     ImageView logo;
     @BindView(R.id.ToolBar)
@@ -71,7 +69,6 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Decelerations();
-        seo = findViewById(R.id.seobtn);
         search = findViewById(R.id.search_text);
         logo = findViewById(R.id.logo_image);
 
@@ -144,6 +141,7 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
             case R.id.MenuItem_PHome:
                 break;
             case R.id.MenuItem_Magazine:
+                startActivity(new Intent(this,magazine.class));
                 break;
             case R.id.MenuItem_Sub:
                 break;
@@ -214,7 +212,6 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
     public void searchBtn(View view) {
         if (vis) {
             search.setVisibility(View.VISIBLE);
-            seo.setVisibility(View.VISIBLE);
             logo.setVisibility(View.INVISIBLE);
             vis = false;
         } else {
@@ -226,7 +223,6 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
     protected void onResume() {
         super.onResume();
         search.setVisibility(View.INVISIBLE);
-        seo.setVisibility(View.INVISIBLE);
         logo.setVisibility(View.VISIBLE);
         fragment_All();
         vis = true;
