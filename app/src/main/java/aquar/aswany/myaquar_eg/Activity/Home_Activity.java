@@ -139,6 +139,7 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
             case R.id.MenuItem_FindHome:
                 break;
             case R.id.MenuItem_PHome:
+                startActivity(new Intent(Home_Activity.this,Popular_Home_Activity.class));
                 break;
             case R.id.MenuItem_Magazine:
                 startActivity(new Intent(this,magazine.class));
@@ -151,9 +152,7 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
                 startActivity(new Intent(Home_Activity.this, login.class));
                 break;
             case R.id.MenuItem_Contact:
-                Intent contact = new Intent(Intent.ACTION_DIAL);
-                contact.setData(Uri.parse("tel:01095488883"));
-                startActivity(contact);
+                startActivity(new Intent(Home_Activity.this,contact_us.class));
                 break;
             default:
                 break;
