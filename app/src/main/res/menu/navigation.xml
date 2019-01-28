@@ -20,7 +20,7 @@
     <item
         android:id="@+id/Navigation_HH"
         android:icon="@mipmap/ic_hh"
-        android:title="@string/ToolBar_HH" />
+        android:title="Holiday" />
 
 
     <item
