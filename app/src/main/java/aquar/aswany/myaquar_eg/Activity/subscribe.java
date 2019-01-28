@@ -13,6 +13,7 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.androidnetworking.interfaces.StringRequestListener;
 
 import org.json.JSONObject;
 
@@ -59,11 +60,11 @@ public class subscribe extends AppCompatActivity {
                 .setPriority(Priority.LOW)
                 .addJSONObjectBody(object)
                 .build()
-                .getAsJSONObject(new JSONObjectRequestListener() {
+                .getAsString(new StringRequestListener() {
                     @Override
-                    public void onResponse(JSONObject response) {
+                    public void onResponse(String response) {
                         dialog.dismiss();
-                        Log.d(TAG, "response" + response.toString());
+                        Log.d(TAG, "response" + response);
                         Toast.makeText(subscribe.this, "Done..!", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(subscribe.this,Home_Activity.class));
                         finish();

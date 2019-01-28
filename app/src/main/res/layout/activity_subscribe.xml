@@ -43,6 +43,7 @@
         android:textColorHint="@android:color/white"
         android:gravity="center"
         android:textSize="20dp"
+        android:textColor="@android:color/white"
         android:background="@drawable/txt_background"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
@@ -61,7 +62,8 @@
         android:gravity="center"
         android:textSize="20dp"
         android:background="@drawable/txt_background"
-        android:layout_margin="20dp"/>
+        android:layout_margin="20dp"
+        android:textColor="@android:color/white"/>
     <Button
         android:id="@+id/sub_btn"
         android:layout_width="wrap_content"
