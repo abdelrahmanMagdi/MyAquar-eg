@@ -33,6 +33,7 @@ public class contact_us extends AppCompatActivity {
         i.setData(Uri.parse(url));
         startActivity(i);
     }
+    //;,;,';,
 
     public void insta_page(View view) {
         String url = "http://www.Facebook.com";
