@@ -39,42 +39,70 @@
         android:layout_gravity="center"
         android:layout_margin="10dp"
         android:text="This page was last edited on 25 January 2019, at 09:34 (UTC). \nText is available under the Creative Commons Attribution-ShareAlike License; additional terms may apply. \nBy using this site, you agree to the Terms of Use and Privacy Policy. \nWikipedia® is a registered trademark of the Wikipedia Foundation, Inc.,a non-profit organization."
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textColor="#fff"
         />
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="center"
+        android:gravity="left"
         >
-       <Button
+       <ImageView
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:background="@drawable/call_button"
-           android:onClick="call_us"
-           android:text="Call now"
-           android:textColor="#fff"
-           android:textSize="20sp"
-           android:textAllCaps="false"
-           android:layout_marginTop="20dp"
+           android:src="@drawable/face_logo"
+           android:onClick="face_page"
+           android:layout_margin="10dp"
            />
+    <ImageView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:src="@drawable/twitter_logo"
+           android:onClick="twitter_page"
+           android:layout_marginTop="10dp"
+           android:layout_marginEnd="10dp"
 
-        <Button
+        />
+    <ImageView
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:background="@drawable/mail_button"
-            android:onClick="email_us"
-            android:text="Mail"
-            android:textColor="#fff"
-            android:textSize="20sp"
-            android:textAllCaps="false"
-            android:layout_marginLeft="20dp"
-           android:layout_marginTop="20dp"
-           />
+           android:src="@drawable/instagram_logo"
+           android:onClick="insta_page"
+           android:layout_marginTop="10dp"
+           android:layout_marginEnd="10dp"
+
+        />
+    <ImageView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:src="@drawable/youtube_logo"
+        android:onClick="youtube_page"
+           android:layout_marginTop="10dp"
+           android:layout_marginEnd="10dp"
+        />
+    <ImageView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:src="@drawable/google_logo"
+           android:onClick="google_page"
+           android:layout_marginTop="10dp"
+        />
+
 
 
     </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/call_us_logo"
+            android:onClick="call_us"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="10dp"
+            android:layout_gravity="right"
+            />
 
     </LinearLayout>
 

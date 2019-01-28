@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-
 import aquar.aswany.myaquar_eg.R;
 
 public class contact_us extends AppCompatActivity {
@@ -21,11 +20,40 @@ public class contact_us extends AppCompatActivity {
         contact.setData(Uri.parse("tel:01033113330"));
         startActivity(contact);
     }
-
-    public void email_us(View view) {
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("plain/text");
-        intent.putExtra(Intent.EXTRA_EMAIL, new String[] { "info@myaquar-eg.com" });
-        startActivity(Intent.createChooser(intent, ""));
+    public void face_page(View view) {
+        String url = "http://www.Facebook.com";
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
     }
+
+    public void twitter_page(View view) {
+        String url = "http://www.Facebook.com";
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
+    }
+
+    public void insta_page(View view) {
+        String url = "http://www.Facebook.com";
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
+    }
+
+    public void youtube_page(View view) {
+        String url = "http://www.Facebook.com";
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
+    }
+
+    public void google_page(View view) {
+        String url = "http://www.Facebook.com";
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
+    }
+
+
 }
