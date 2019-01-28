@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-
     <item
         android:id="@+id/Navigation_Res"
-        android:icon="@mipmap/ic_ress"
+        android:icon="@drawable/ic_commertial"
         android:title="@string/ToolBar_Res" />
 
     <item
         android:id="@+id/Navigation_Com"
-        android:icon="@drawable/ic_commertial"
+        android:icon="@mipmap/ic_ress"
         android:title="@string/ToolBar_Com" />
+
+    <!--Navigation_Com-->
 
     <item
         android:id="@+id/Navigation_Med"
