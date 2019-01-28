@@ -61,4 +61,7 @@ dependencies {
     //circle
     implementation 'de.hdodenhof:circleimageview:3.0.0'
 
+    //seekbar
+    implementation 'com.crystal:crystalrangeseekbar:1.1.3'
+
 }

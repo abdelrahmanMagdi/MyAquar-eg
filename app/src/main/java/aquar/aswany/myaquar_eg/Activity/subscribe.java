@@ -37,6 +37,7 @@ public class subscribe extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subscribe);
         dialog = new ProgressDialog(this);
+        dialog.setTitle("Loading");
 
         email = findViewById(R.id.sub_email);
         phone = findViewById(R.id.sub_phone);
@@ -65,7 +66,7 @@ public class subscribe extends AppCompatActivity {
                     public void onResponse(String response) {
                         dialog.dismiss();
                         Log.d(TAG, "response" + response);
-                        Toast.makeText(subscribe.this, "Done..!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(subscribe.this, "Thank you..", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(subscribe.this,Home_Activity.class));
                         finish();
 

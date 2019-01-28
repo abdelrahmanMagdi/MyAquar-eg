@@ -16,6 +16,7 @@ public class URLS {
     public static final String PopularP = SERVER_URL+"popular_projects";
     public static final String Registration = SERVER_URL+"registration";
     public static final String subscribe_link =SERVER_URL+"subscribe";
+    public static final String SearchLink =SERVER_URL+"search";
 
 //    public static final String projects = SERVER_URL+"projects_dev";
 //    //id = 1

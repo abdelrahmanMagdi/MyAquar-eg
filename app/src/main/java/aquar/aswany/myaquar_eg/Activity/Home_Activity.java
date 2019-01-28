@@ -137,6 +137,7 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
     public boolean onMenuItemClick(MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case R.id.MenuItem_FindHome:
+                startActivity(new Intent(Home_Activity.this,Findhome.class));
                 break;
             case R.id.MenuItem_PHome:
                 startActivity(new Intent(Home_Activity.this,Popular_Home_Activity.class));
