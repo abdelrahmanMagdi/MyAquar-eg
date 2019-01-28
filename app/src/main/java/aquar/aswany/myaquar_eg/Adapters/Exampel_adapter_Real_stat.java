@@ -21,10 +21,11 @@ public class Exampel_adapter_Real_stat extends RecyclerView.Adapter <Exampel_ada
 
 
 public ImageView imageView_Real_stat;
+public TextView textView;
         public ExampleViewHolder(View itemView) {
             super(itemView);
 imageView_Real_stat =itemView.findViewById(R.id.image_real_stat_id);
-
+textView=itemView.findViewById(R.id.text_real_stat_id);
         }
     }
 
@@ -44,7 +45,7 @@ imageView_Real_stat =itemView.findViewById(R.id.image_real_stat_id);
         Example_real_state currentItem = mExampleList.get(position);
 
         holder.imageView_Real_stat.setImageResource(currentItem.getImage_real_stat());
-
+holder.textView.setText(currentItem.getText());
     }
 
     @Override

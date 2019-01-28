@@ -48,7 +48,7 @@ public class Splash_Activity extends AppCompatActivity {
         pro.startAnimation(myanim2);
 
 
-        ////
+
     }
 
 
