@@ -1,6 +1,6 @@
 package aquar.aswany.myaquar_eg.Models;
 
-public class SearchObject {
+public class SearchObjectTypes {
 
 
     /**

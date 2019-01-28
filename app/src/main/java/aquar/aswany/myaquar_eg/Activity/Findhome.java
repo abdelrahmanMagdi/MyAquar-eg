@@ -1,13 +1,14 @@
 package aquar.aswany.myaquar_eg.Activity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -28,54 +29,44 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import aquar.aswany.myaquar_eg.InternalStorage.Session;
-import aquar.aswany.myaquar_eg.Models.Pojo_Developer_Category_Res;
-import aquar.aswany.myaquar_eg.Models.Pojo_Project_Res;
-import aquar.aswany.myaquar_eg.Models.SearchArray;
+import aquar.aswany.myaquar_eg.Models.SearchArrayTypes;
 import aquar.aswany.myaquar_eg.Models.SearchLimts;
-import aquar.aswany.myaquar_eg.Models.SearchObject;
+import aquar.aswany.myaquar_eg.Models.SearchLocationArray;
+import aquar.aswany.myaquar_eg.Models.SearchLocationObject;
+import aquar.aswany.myaquar_eg.Models.SearchObjectTypes;
 import aquar.aswany.myaquar_eg.R;
 import aquar.aswany.myaquar_eg.Utils.URLS;
 
-public class Findhome extends AppCompatActivity {
+public class Findhome extends AppCompatActivity  {
 
 
-    private TextView textView,textView2,all,villa,flat,chalet,twin,doblex,twon_house,penta,stand;
-    private CrystalRangeSeekbar rangeSeekbar,rangeSeekbar2;
-    private List<TextView> text_list;
-    private String ret_string;
-    private Spinner spinner;
-    String item []= new String[] {"Select City","new Cairo","new Cairo","new Cairo","new Cairo"};
-
-    ArrayList<SearchObject>listTypes = new ArrayList<>();
-    ArrayList<SearchObject>listLimts = new ArrayList<>();
+    private TextView priceMin , priceMax , areaMin , areaMax;
+    private CrystalRangeSeekbar rangeSeekbar, rangeSeekbar2;
+    private Spinner spinner_loacation, spinner_home_type;
+    int max_area ,max_price ,min_price ,min_area  ;
+    ArrayList<SearchObjectTypes> listTypes = new ArrayList<>();
+    ArrayList<SearchLocationObject> listLocations = new ArrayList<>();
+    ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_findhome);
+        dialog = new ProgressDialog(this);
 
-        spinner =findViewById(R.id.spinner);
+        spinner_loacation = findViewById(R.id.spinner_location);
+        spinner_home_type = findViewById(R.id.spinner_home_type);
+         priceMin = findViewById(R.id.minprice);
+       priceMax = findViewById(R.id.maxprice);
+          areaMin = findViewById(R.id.minarea);
+         areaMax = findViewById(R.id.maxarea);
+        rangeSeekbar = findViewById(R.id.simpleSeekBar1);
+        rangeSeekbar2 = findViewById(R.id.simpleSeekBar2);
 
-        spinner.setAdapter(new MyCustomAdapter(Findhome.this, R.layout.activity_main2,item));
 
-        all=findViewById(R.id.all);
-        villa=findViewById(R.id.villa);
-        flat=findViewById(R.id.flat);
-        chalet=findViewById(R.id.chalet);
-        twin=findViewById(R.id.twinhome);
-        doblex=findViewById(R.id.duplex);
-        twon_house=findViewById(R.id.toenhouse);
-        penta=findViewById(R.id.penta);
-        stand=findViewById(R.id.standalone);
 
-        final TextView priceMin =  findViewById(R.id.minprice);
-        final  TextView priceMax = findViewById(R.id.maxprice);
-        final TextView areaMin =  findViewById(R.id.minarea);
-        final  TextView areaMax = findViewById(R.id.maxarea);
-        rangeSeekbar=findViewById(R.id.simpleSeekBar1);
-        rangeSeekbar2=findViewById(R.id.simpleSeekBar2);
-        text_list= Arrays.asList(new TextView[]{all, villa});
+
+
         rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
             @Override
             public void valueChanged(Number minValue, Number maxValue) {
@@ -91,15 +82,111 @@ public class Findhome extends AppCompatActivity {
                 areaMax.setText(String.valueOf(maxValue));
             }
         });
+
         getLimits();
-        GetHome_Categories_Data();
+        getTypes();
+        getLocation();
+
+    }
+
+
+
+
+
+
+    private void getTypes() {
+        dialog.show();
+        AndroidNetworking.get(URLS.SearchLink)
+                .setPriority(Priority.LOW)
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        dialog.dismiss();
+                        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                        SearchArrayTypes array = gson.fromJson(response.toString(), SearchArrayTypes.class);
+                        listTypes = array.getTypes();
+
+                        spinner_home_type.setAdapter(new MyCustomAdapter(Findhome.this,
+                                R.layout.activity_main2, listTypes));
+                    }
+                    @Override
+                    public void onError(ANError anError) {
+                        dialog.dismiss();
+                        Toast.makeText(Findhome.this, "Connection Failed", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    private void getLimits() {
+
+        AndroidNetworking.get(URLS.SearchLink)
+                .setPriority(Priority.LOW)
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                        SearchLimts limet = gson.fromJson(response.toString(), SearchLimts.class);
+                         max_area = limet.getMax_area();
+                         max_price = limet.getMax_price();
+                         min_area = limet.getMin_area();
+                         min_price = limet.getMin_price();
+                        priceMin.setText(String.valueOf(min_price));
+                        priceMax.setText(String.valueOf(max_price));
+                        areaMin.setText(String.valueOf(min_area));
+                        areaMax.setText(String.valueOf(max_area));
+                        rangeSeekbar.setMaxValue(max_price);
+                        rangeSeekbar2.setMaxValue(max_area);
+                        rangeSeekbar2.setMinValue(min_area);
+                        rangeSeekbar.setMinValue(min_price);
+                        rangeSeekbar.setSteps(((float) 0.5));
+                        rangeSeekbar2.setSteps(1);
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+                        Toast.makeText(Findhome.this, "Connection Failed", Toast.LENGTH_SHORT).show();
+
+
+                    }
+                });
 
 
     }
 
+    private void getLocation() {
+
+        AndroidNetworking.get(URLS.SearchLink)
+                .setPriority(Priority.LOW)
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                        SearchLocationArray array = gson.fromJson(response.toString(), SearchLocationArray.class);
+                        listLocations  = array.getLocations();
+
+                        spinner_loacation.setAdapter(new MyCustomAdapter2(Findhome.this,
+                                R.layout.activity_main2, listLocations));
+
+
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+
+                        Toast.makeText(Findhome.this, "Connection Failed", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+
+
+
     public class MyCustomAdapter extends ArrayAdapter<String> {
 
-        public MyCustomAdapter(Context context, int textViewResourceId, String[] objects) {
+        public MyCustomAdapter(Context context, int textViewResourceId, ArrayList objects) {
             super(context, textViewResourceId, objects);
         }
 
@@ -115,98 +202,46 @@ public class Findhome extends AppCompatActivity {
         }
 
         public View getCustomView(int position, View row, ViewGroup parent) {
-            LayoutInflater inflater=getLayoutInflater();
-            row=inflater.inflate(R.layout.activity_main2, parent, false);
-            TextView label=row.findViewById(R.id.city);
-            label.setText(item[position]);
+            LayoutInflater inflater = getLayoutInflater();
+            row = inflater.inflate(R.layout.activity_main2, parent, false);
+            TextView label = row.findViewById(R.id.city);
+            label.setText(listTypes.get(position).getType_name());
 
-            if(position == 0)
+            if (position == 0)
                 label.setTextColor(Color.WHITE);
 
             return row;
         }
     }
-    public void all(List<TextView>t,int x)
-    {
-        if (x==1){
+    public class MyCustomAdapter2 extends ArrayAdapter<String> {
 
-            for(int i=2;i<t.size();i++)
-            {
-                t.get(i).setTextColor(Color.RED);
-            }
+        public MyCustomAdapter2(Context context, int textViewResourceId, ArrayList objects) {
+            super(context, textViewResourceId, objects);
         }
 
-        else
-            for(int i=0;i<t.size();i++){
+        @Override
+        public View getDropDownView(int position, View convertView,
+                                    ViewGroup parent) {
+            return getCustomView(position, convertView, parent);
+        }
 
-                if(x==i){
-                    t.get(i).setTextColor(Color.RED);
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            return getCustomView(position, convertView, parent);
+        }
 
-                }
+        public View getCustomView(int position, View row, ViewGroup parent) {
+            LayoutInflater inflater = getLayoutInflater();
+            row = inflater.inflate(R.layout.activity_main2, parent, false);
+            TextView label = row.findViewById(R.id.city);
+            label.setText(listLocations.get(position).getLocation());
 
-            }
-    }
+            if (position == 0)
+                label.setTextColor(Color.WHITE);
 
-
-    private void GetHome_Categories_Data() {
-
-        AndroidNetworking.get(URLS.SearchLink)
-                .setPriority(Priority.LOW)
-                .build()
-                .getAsJSONObject(new JSONObjectRequestListener() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-                        SearchArray array = gson.fromJson(response.toString(), SearchArray.class);
-                        listTypes = array.getTypes();
-
-                        Toast.makeText(Findhome.this, listTypes.get(0).getType_name() + "", Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onError(ANError anError) {
-
-                        if (anError.getErrorCode() != 0) {
-
-                            if (anError.getErrorCode() == 500) {
-
-                            }
-
-                        } else {
-                        }
-
-                    }
-                });
-    }
-        private void getLimits(){
-
-            AndroidNetworking.get(URLS.SearchLink)
-                    .setPriority(Priority.LOW)
-                    .build()
-                    .getAsJSONObject(new JSONObjectRequestListener() {
-                        @Override
-                        public void onResponse(JSONObject response) {
-                            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-                            SearchLimts limet = gson.fromJson(response.toString(), SearchLimts.class);
-                          int x = limet.getMax_area();
-
-                            Toast.makeText(Findhome.this, x + "ashfhi", Toast.LENGTH_SHORT).show();
-                        }
-
-                        @Override
-                        public void onError(ANError anError) {
-
-                            if (anError.getErrorCode() != 0) {
-
-                                if (anError.getErrorCode() == 500) {
-
-                                }
-
-                            } else {
-                            }
-
-                        }
-                    });
-
+            return row;
+        }
     }
 }
+
+

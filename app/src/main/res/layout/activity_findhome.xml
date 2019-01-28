@@ -29,13 +29,14 @@
             android:orientation="horizontal"
             android:layout_height="wrap_content">
             <TextView
-                android:layout_width="0dp"
-                android:layout_weight="2"
+                android:layout_marginRight="5dp"
+                android:layout_width="wrap_content"
+                android:gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="5dp"
                 android:id="@+id/minprice"
-                android:text="1.000.000"
+                android:text=""
                 android:textColor="#e20e2d"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -50,14 +51,15 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
             <TextView
-                android:layout_width="0dp"
-                android:layout_weight="2"
+                android:layout_marginLeft="5dp"
+
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="5dp"
                 android:id="@+id/maxprice"
-                android:text="17.000.00"
+                android:text=""
                 android:textColor="#e20e2d"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -70,9 +72,6 @@
             app:bar_color="@color/white"
             app:bar_highlight_color="@color/white"
             app:data_type="_integer"
-            app:min_value="10000000"
-            app:steps="500000"
-            app:max_value="17000000"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             app:left_thumb_color="@color/white"
@@ -98,17 +97,17 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_gravity="center"
-            android:weightSum="4.8"
             android:orientation="horizontal"
             android:layout_height="wrap_content">
             <TextView
-                android:layout_width="0dp"
-                android:layout_weight="2.5"
+                android:layout_marginRight="5dp"
+                android:layout_width="wrap_content"
+                android:gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="5dp"
                 android:id="@+id/minarea"
-                android:text=" 70 "
+                android:text=""
                 android:textColor="#e20e2d"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -122,13 +121,14 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
             <TextView
-                android:layout_width="0dp"
-                android:layout_weight="2.9"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="5dp"
                 android:id="@+id/maxarea"
-                android:text="250"
+                android:text=""
+                android:gravity="center"
                 android:textColor="#e20e2d"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -145,8 +145,7 @@
             app:bar_highlight_color="@color/white"
             app:data_type="_integer"
             app:left_thumb_color="@color/white"
-            app:min_value="70"
-            app:max_value="250"
+
             app:left_thumb_color_pressed="@color/white"
             app:left_thumb_image="@drawable/thumbb"
             app:left_thumb_image_pressed="@drawable/thumbb"
@@ -154,7 +153,7 @@
             app:right_thumb_color_pressed="@color/white"
             app:right_thumb_image="@drawable/thumbb"
             app:right_thumb_image_pressed="@drawable/thumbb"
-            app:steps="10" />
+          />
 
         <LinearLayout
             android:layout_marginTop="10dp"
@@ -198,7 +197,73 @@
                 android:background="@color/white" />
 
             <Spinner
-                android:id="@+id/spinner"
+
+                android:spinnerMode="dialog"
+                android:id="@+id/spinner_location"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="25dp"
+                android:layout_weight="1"
+
+                android:background="@drawable/shape"
+                />
+
+            <TextView
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/white" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/white" />
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/white" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@null"
+                android:gravity="center"
+                android:text="Home Type"
+                android:textColor="#e20e2d"
+                android:textSize="22sp" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:layout_weight="3"
+                android:background="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-15dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/white" />
+
+            <Spinner
+                android:spinnerMode="dialog"
+                android:id="@+id/spinner_home_type"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="25dp"
@@ -218,174 +283,11 @@
             android:layout_height="2dp"
             android:background="@color/white" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-
-                android:layout_width="0dp"
-                android:layout_height="2dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:background="@color/white" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@null"
-                android:gravity="center"
-                android:text="Home Type"
-                android:textColor="#e20e2d"
-                android:textSize="22sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="2dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:background="@color/white" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-15dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/white" />
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_marginTop="15dp"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_marginLeft="60dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:text="All"
-                        android:background="@null"
-                        android:textColor="@color/white"
-                        android:id="@+id/all"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:text="Villa"
-                        android:textColor="@color/white"
-
-                        android:id="@+id/villa"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:textColor="@color/white"
-
-                        android:text="Flat"
-                        android:id="@+id/flat"
-                        android:layout_height="wrap_content" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginTop="10dp"
-
-                    android:layout_marginBottom="10dp"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="0.5"
-                        android:text="Chalet"
-                        android:textColor="@color/white"
-
-                        android:id="@+id/chalet"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="0.5"
-                        android:text="Twin Home"
-                        android:textColor="@color/white"
-
-                        android:id="@+id/twinhome"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="0.5"
-                        android:id="@+id/duplex"
-                        android:text="Duplex"
-                        android:textColor="@color/white"
-
-                        android:layout_height="wrap_content"
-                        />
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginBottom="10dp"
-
-                    android:layout_marginTop="10dp"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:id="@+id/toenhouse"
-                        android:textColor="@color/white"
-
-                        android:text="Town House"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:textColor="@color/white"
-
-                        android:text="Penta House"
-                        android:id="@+id/penta"
-
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:text="Stand alone"
-                        android:textColor="@color/white"
-                        android:id="@+id/standalone"
-                        android:layout_height="wrap_content" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/white" />
         <Button
             android:layout_width="wrap_content"
             android:background="@drawable/shapepreseed"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_gravity="center|bottom"
+            android:layout_marginTop="50dp"
             android:textColor="#B00020"
             android:textStyle="bold"
             android:textSize="21sp"
