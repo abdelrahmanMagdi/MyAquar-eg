@@ -1,5 +1,6 @@
 package aquar.aswany.myaquar_eg.Activity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Color;
@@ -36,6 +37,7 @@ import aquar.aswany.myaquar_eg.Models.SearchLocationObject;
 import aquar.aswany.myaquar_eg.Models.SearchObjectTypes;
 import aquar.aswany.myaquar_eg.R;
 import aquar.aswany.myaquar_eg.Utils.URLS;
+import dmax.dialog.SpotsDialog;
 
 public class Findhome extends AppCompatActivity  {
 
@@ -46,13 +48,21 @@ public class Findhome extends AppCompatActivity  {
     int max_area ,max_price ,min_price ,min_area  ;
     ArrayList<SearchObjectTypes> listTypes = new ArrayList<>();
     ArrayList<SearchLocationObject> listLocations = new ArrayList<>();
-    ProgressDialog dialog;
+
+     AlertDialog  dialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_findhome);
-        dialog = new ProgressDialog(this);
+
+
+
+        dialog= new SpotsDialog.Builder().setContext(Findhome.this).setTheme(R.style.Custom).build();
+        dialog.setMessage("Please wait.....");
+
+        dialog.show();
 
         spinner_loacation = findViewById(R.id.spinner_location);
         spinner_home_type = findViewById(R.id.spinner_home_type);
@@ -91,11 +101,8 @@ public class Findhome extends AppCompatActivity  {
 
 
 
-
-
-
     private void getTypes() {
-        dialog.show();
+
         AndroidNetworking.get(URLS.SearchLink)
                 .setPriority(Priority.LOW)
                 .build()
@@ -128,6 +135,8 @@ public class Findhome extends AppCompatActivity  {
                     public void onResponse(JSONObject response) {
                         Gson gson = new GsonBuilder().setPrettyPrinting().create();
                         SearchLimts limet = gson.fromJson(response.toString(), SearchLimts.class);
+
+                        //define data
                          max_area = limet.getMax_area();
                          max_price = limet.getMax_price();
                          min_area = limet.getMin_area();

@@ -1,5 +1,6 @@
 package aquar.aswany.myaquar_eg.Activity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -41,10 +42,11 @@ import aquar.aswany.myaquar_eg.R;
 import aquar.aswany.myaquar_eg.Utils.URLS;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import dmax.dialog.SpotsDialog;
 
 public class Home_Activity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener, Toolbar.OnMenuItemClickListener {
     private static final String TAG = "Home_Activity_Res";
-    private ProgressDialog dialog;
+
     private Fragment fragment;
     private FragmentTransaction transaction;
 
@@ -63,14 +65,25 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
     boolean vis = true;
 
     private ArrayList<Pojo_Home_Obj> pojo_home_res = new ArrayList<>();
+     AlertDialog  dialog1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+
+        dialog1= new SpotsDialog.Builder().setContext(Home_Activity.this).setTheme(R.style.Custom).build();
+        dialog1.setMessage("Please wait.....");
+
+
         Decelerations();
         search = findViewById(R.id.search_text);
         logo = findViewById(R.id.logo_image);
+
+
+
+
 
     }
 
@@ -81,8 +94,9 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
     }
 
     private void Decelerations() {
+
         ButterKnife.bind(this);
-        dialog = new ProgressDialog(this);
+
         AndroidNetworking.initialize(this);
 //        GetHome_Categories_Data();
         fragment_All();
@@ -92,20 +106,21 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
     }
 
     private void GetHome_Categories_Data() {
-        dialog.show();
+
+        dialog1.show();
         AndroidNetworking.get(URLS.Category)
                 .setPriority(Priority.LOW)
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        dialog.dismiss();
+                        dialog1.dismiss();
                         Log.d(TAG, "Response: " + response);
                     }
 
                     @Override
                     public void onError(ANError anError) {
-                        dialog.dismiss();
+                        dialog1.dismiss();
                         if (anError.getErrorCode() != 0) {
                             Log.d(TAG, "onError errorCode : " + anError.getErrorCode());
                             Log.d(TAG, "onError errorBody : " + anError.getErrorBody());
@@ -231,15 +246,16 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
         vis = true;
     }
 
-    private void dismissProgressDialog() {
-        if (dialog != null && dialog.isShowing()) {
-            dialog.dismiss();
+   /* private void dismissProgressDialog() {
+        if (dialog1 != null && dialog1.isShowing()) {
+            dialog1.dismiss();
         }
-    }
+    }*/
 
     @Override
     protected void onDestroy() {
-        dismissProgressDialog();
+       // dismissProgressDialog();
+        dialog1.hide();
         super.onDestroy();
     }
 

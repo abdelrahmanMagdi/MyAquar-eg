@@ -1,5 +1,6 @@
 package aquar.aswany.myaquar_eg.Activity;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -42,6 +43,7 @@ import aquar.aswany.myaquar_eg.Utils.URLS;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import dmax.dialog.SpotsDialog;
 
 import static android.app.PendingIntent.getActivity;
 
@@ -49,11 +51,13 @@ public class Product_Activity extends AppCompatActivity {
 
     private final String TAG = "Product_Activity";
 
-    private Dialog dialog;
+    private Dialog dialog2;
    private Button go360 , go_info,location_btn,str_btn;
     @BindView(R.id.Product_Slider)
     SliderLayout Product_Slider;
     private SectionPagerAdapter sectionPagerAdapter;
+
+    AlertDialog dialog1;
 //    @BindView(R.id.tabs)
 //    TabLayout tabs;
 //    @BindView(R.id.viewPager)
@@ -95,6 +99,9 @@ public class Product_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
         Deceleration();
+
+
+
 
         go360 = (Button)findViewById(R.id.go360);
 
@@ -144,7 +151,8 @@ public class Product_Activity extends AppCompatActivity {
 
     private void Deceleration() {
         Product_ID = Session.getInstance().getProductID();
-        dialog = new ProgressDialog(Product_Activity.this);
+        dialog1= new SpotsDialog.Builder().setContext(Product_Activity.this).setTheme(R.style.Custom).build();
+        dialog1.setMessage("Please wait.....");
         getData();
         ButterKnife.bind(this);
 
@@ -212,7 +220,7 @@ public class Product_Activity extends AppCompatActivity {
 
     private void getData() {
         Log.d("zex", "Response: " + Product_ID);
-        dialog.show();
+        dialog1.show();
         AndroidNetworking.get(URLS.project)
                 .addQueryParameter("id", Product_ID + "")
                 .setPriority(Priority.LOW)
@@ -220,7 +228,7 @@ public class Product_Activity extends AppCompatActivity {
                 .getAsJSONObject(new JSONObjectRequestListener() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        dialog.dismiss();
+                        dialog1.dismiss();
                         Log.d(TAG, "Response: " + response.toString());
                         Gson gson = new GsonBuilder().setPrettyPrinting().create();
                         Pojo_Project_Res projectRes = gson.fromJson(response.toString(), Pojo_Project_Res.class);
@@ -235,7 +243,7 @@ public class Product_Activity extends AppCompatActivity {
 
                     @Override
                     public void onError(ANError anError) {
-                        dialog.dismiss();
+                        dialog1.dismiss();
                         Log.d(TAG, "Response: " + anError.getErrorCode());
 
                     }

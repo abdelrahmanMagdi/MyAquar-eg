@@ -1,5 +1,6 @@
 package aquar.aswany.myaquar_eg.Fragments.Fragment;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.support.v4.app.Fragment;
@@ -25,6 +26,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import aquar.aswany.myaquar_eg.Activity.Popular_Home_Activity;
 import aquar.aswany.myaquar_eg.Adapters.Home_Dev_Adapter;
 import aquar.aswany.myaquar_eg.Models.Pojo_Home_Obj;
 import aquar.aswany.myaquar_eg.Models.Pojo_Home_Res;
@@ -32,6 +34,7 @@ import aquar.aswany.myaquar_eg.R;
 import aquar.aswany.myaquar_eg.Utils.URLS;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import dmax.dialog.SpotsDialog;
 
 /**
  * Created by aswany on 1/19/19.
@@ -41,7 +44,8 @@ public class All_Data_Fragment extends Fragment {
     private final String TAG = "All_Data_Fragment";
     @BindView(R.id.Fragment_RV)
     RecyclerView Fragment_RV;
-    private Dialog dialog;
+
+    private AlertDialog dialog;
     private ArrayList<Pojo_Home_Obj> pojo_home_objs = new ArrayList<>();
 
 
@@ -54,7 +58,8 @@ public class All_Data_Fragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        dialog = new ProgressDialog(getActivity());
+        dialog= new SpotsDialog.Builder().setContext(getActivity()).setTheme(R.style.Custom).build();
+        dialog.setMessage("Please wait.....");
 
     }
 

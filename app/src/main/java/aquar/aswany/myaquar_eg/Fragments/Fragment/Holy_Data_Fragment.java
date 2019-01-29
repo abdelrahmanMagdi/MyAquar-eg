@@ -1,5 +1,6 @@
 package aquar.aswany.myaquar_eg.Fragments.Fragment;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -32,13 +33,14 @@ import aquar.aswany.myaquar_eg.R;
 import aquar.aswany.myaquar_eg.Utils.URLS;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import dmax.dialog.SpotsDialog;
 
 /**
  * Created by aswany on 1/21/19.
  */
 
 public class Holy_Data_Fragment extends Fragment {
-    private Dialog dialog;
+    private AlertDialog dialog;
     private final String TAG="Holy_Data_Fragment";
     @BindView(R.id.Fragment_RV)
     RecyclerView Fragment_RV;
@@ -55,7 +57,8 @@ public class Holy_Data_Fragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        dialog = new ProgressDialog(getActivity());
+        dialog= new SpotsDialog.Builder().setContext(getActivity()).setTheme(R.style.Custom).build();
+        dialog.setMessage("Please wait.....");
         Receive_Holy_Data();
     }
 
