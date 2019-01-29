@@ -1,5 +1,6 @@
 package aquar.aswany.myaquar_eg.Activity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ import aquar.aswany.myaquar_eg.R;
 import aquar.aswany.myaquar_eg.Utils.URLS;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import dmax.dialog.SpotsDialog;
 
 public class Popular_Home_Activity extends AppCompatActivity {
 
@@ -33,7 +35,7 @@ public class Popular_Home_Activity extends AppCompatActivity {
     RecyclerView Popular_Home_RV;
     final String TAG="Popular_Home_Activity";
 
-    ProgressDialog dialog;
+    AlertDialog dialog1;
     private ArrayList<Pojo_Developer_Category_Obj> PopularProjects=new ArrayList<>();
 
 
@@ -41,21 +43,25 @@ public class Popular_Home_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_popular_home);
-        dialog = new ProgressDialog(this);
+
+        dialog1= new SpotsDialog.Builder().setContext(Popular_Home_Activity.this).setTheme(R.style.Custom).build();
+        dialog1.setMessage("Please wait.....");
+
+
         ButterKnife.bind(this);
         Recive_Data();
 
     }
 
     private void Recive_Data() {
-        dialog.show();
+        dialog1.show();
         AndroidNetworking.get(URLS.PopularP)
                 .setPriority(Priority.LOW)
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        dialog.dismiss();
+                        dialog1.dismiss();
                         Log.d(TAG,"response"+response.toString());
 //                        response.get("er")
                         Gson gson= new GsonBuilder().setPrettyPrinting().create();
@@ -67,7 +73,7 @@ public class Popular_Home_Activity extends AppCompatActivity {
 
                     @Override
                     public void onError(ANError anError) {
-                        dialog.dismiss();
+                        dialog1.dismiss();
                         if (anError.getErrorCode() != 0) {
                             Log.d(TAG, "onError errorCode : " + anError.getErrorCode());
                             Log.d(TAG, "onError errorBody : " + anError.getErrorBody());

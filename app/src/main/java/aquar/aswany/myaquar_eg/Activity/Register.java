@@ -3,6 +3,7 @@ package aquar.aswany.myaquar_eg.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +19,9 @@ import org.json.JSONObject;
 
 import aquar.aswany.myaquar_eg.R;
 import aquar.aswany.myaquar_eg.Utils.URLS;
+import dmax.dialog.SpotsDialog;
+
+import static org.greenrobot.eventbus.ThreadMode.POSTING;
 
 public class Register extends AppCompatActivity {
     EditText username;
@@ -31,13 +35,17 @@ public class Register extends AppCompatActivity {
     String phone1;
     String job1;
     final String TAG = "Register";
-    ProgressDialog dialog;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        dialog = new ProgressDialog(this);
+
+
+
+
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
         pass = findViewById(R.id.password);
@@ -47,7 +55,7 @@ public class Register extends AppCompatActivity {
     }
 
     private void SetData(String username, String email, String pass, String phone, String job) {
-        dialog.show();
+
         JSONObject object = new JSONObject();
         try {
             object.put("user_name", username);
@@ -65,7 +73,7 @@ public class Register extends AppCompatActivity {
                 .getAsJSONObject(new JSONObjectRequestListener() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        dialog.dismiss();
+
                         Log.d(TAG, "response" + response.toString());
                         Toast.makeText(Register.this, "Done..!", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(Register.this,Home_Activity.class));
@@ -75,7 +83,7 @@ public class Register extends AppCompatActivity {
 
                     @Override
                     public void onError(ANError anError) {
-                        dialog.dismiss();
+
                         if (anError.getErrorCode() != 0) {
                             Log.d(TAG, "onError errorCode : " + anError.getErrorCode());
                             Log.d(TAG, "onError errorBody : " + anError.getErrorBody());

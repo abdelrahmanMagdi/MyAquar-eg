@@ -1,5 +1,6 @@
 package aquar.aswany.myaquar_eg.Fragments.Fragment;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.support.v4.app.Fragment;
 import android.app.ProgressDialog;
@@ -31,13 +32,14 @@ import aquar.aswany.myaquar_eg.R;
 import aquar.aswany.myaquar_eg.Utils.URLS;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import dmax.dialog.SpotsDialog;
 
 /**
  * Created by aswany on 1/19/19.
  */
 
 public class Res_Data_Fragment extends Fragment {
-    private Dialog dialog;
+    private AlertDialog dialog;
     private final String TAG="Res_Data_Fragment";
     private ArrayList<Pojo_Developer_Category_Obj> pojoDeveloperCategoryObj=new ArrayList<>();
 
@@ -47,8 +49,8 @@ public class Res_Data_Fragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        dialog = new ProgressDialog(getActivity());
-        Receive_Res_Data();
+        dialog= new SpotsDialog.Builder().setContext(getActivity()).setTheme(R.style.Custom).build();
+        dialog.setMessage("Please wait.....");        Receive_Res_Data();
 
     }
 
