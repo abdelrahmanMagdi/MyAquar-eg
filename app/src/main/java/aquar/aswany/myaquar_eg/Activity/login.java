@@ -27,15 +27,18 @@ public class login extends AppCompatActivity {
     public void signUP(View view) {
 
         startActivity(new Intent(this,Register.class));
+        finish();
     }
 
 //jkgkj.jugjughhj
     public void skip(View view) {
         startActivity(new Intent(this,Home_Activity.class));
+        finish();
     }
 
     public void login(View view) {
         startActivity(new Intent(this,Home_Activity.class));
+        finish();
         }
 
     }

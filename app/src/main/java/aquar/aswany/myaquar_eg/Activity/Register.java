@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -37,13 +38,10 @@ public class Register extends AppCompatActivity {
     final String TAG = "Register";
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
-
 
 
         username = findViewById(R.id.username);
@@ -76,7 +74,7 @@ public class Register extends AppCompatActivity {
 
                         Log.d(TAG, "response" + response.toString());
                         Toast.makeText(Register.this, "Done..!", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(Register.this,Home_Activity.class));
+                        startActivity(new Intent(Register.this, Home_Activity.class));
                         finish();
 
                     }
@@ -104,13 +102,19 @@ public class Register extends AppCompatActivity {
     }
 
     public void Confirm(View view) {
-//        startActivity(new Intent(this,Home_Activity.class));
+
         username1 = username.getText().toString().trim();
         email1 = email.getText().toString().trim();
         pass1 = pass.getText().toString().trim();
         phone1 = phone.getText().toString().trim();
         job1 = job.getText().toString().trim();
-        SetData(username1, email1, pass1, phone1, job1);
+
+        if (TextUtils.isEmpty(username1) || TextUtils.isEmpty(email1) ||
+                TextUtils.isEmpty(pass1) || TextUtils.isEmpty(phone1) ) {
+            Toast.makeText(Register.this,"All Fields Required",Toast.LENGTH_SHORT).show();
+        } else {
+            SetData(username1, email1, pass1, phone1, job1);
+        }
 
     }
 
