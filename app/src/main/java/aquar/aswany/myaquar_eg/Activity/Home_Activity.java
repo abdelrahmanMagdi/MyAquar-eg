@@ -235,7 +235,7 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
         unsearchbtn.setVisibility(View.INVISIBLE);
         vis=true;
     }
-
+//mljiljlj
     @Override
     protected void onResume() {
         super.onResume();
