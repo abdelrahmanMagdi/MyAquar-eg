@@ -59,7 +59,7 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
     ImageView logo;
     @BindView(R.id.ToolBar)
     Toolbar toolbar;
-
+    Button unsearchbtn;
     boolean vis = true;
 
     private ArrayList<Pojo_Home_Obj> pojo_home_res = new ArrayList<>();
@@ -71,6 +71,8 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
         Decelerations();
         search = findViewById(R.id.search_text);
         logo = findViewById(R.id.logo_image);
+        unsearchbtn=findViewById(R.id.unsearchBtn);
+
 
     }
 
@@ -215,11 +217,23 @@ public class Home_Activity extends AppCompatActivity implements BottomNavigation
     public void searchBtn(View view) {
         if (vis) {
             search.setVisibility(View.VISIBLE);
+            unsearchbtn.setVisibility(View.VISIBLE);
             logo.setVisibility(View.INVISIBLE);
             vis = false;
         } else {
+            logo.setVisibility(View.VISIBLE);
+            search.setVisibility(View.INVISIBLE);
+            unsearchbtn.setVisibility(View.INVISIBLE);
             Toast.makeText(this, "search done..!", Toast.LENGTH_SHORT).show();
+            vis=true;
         }
+    }
+    public void unsearchBtn(View view)
+    {
+        logo.setVisibility(View.VISIBLE);
+        search.setVisibility(View.INVISIBLE);
+        unsearchbtn.setVisibility(View.INVISIBLE);
+        vis=true;
     }
 
     @Override

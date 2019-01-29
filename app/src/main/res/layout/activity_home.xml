@@ -48,6 +48,18 @@
                 android:layout_centerVertical="true"
                 android:background="@drawable/ic_search_black_24dp" />
 
+            <Button
+                android:id="@+id/unsearchBtn"
+                android:onClick="unsearchBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="5dp"
+                android:visibility="invisible"
+                android:background="@drawable/ic_keyboard_arrow_left_black_24dp" />
+
+
         </RelativeLayout>
 
     </android.support.v7.widget.Toolbar>
